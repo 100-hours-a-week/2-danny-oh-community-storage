@@ -6,6 +6,12 @@ import { fileURLToPath } from 'url';
 import crypto from 'crypto';
 import cors from 'cors';
 
+// __dirname 구현 (ES 모듈 환경)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const app = express();
+const PORT = 4000;
 // cors 설정
 app.use(
     cors({
@@ -13,14 +19,6 @@ app.use(
         credentials: true, // 쿠키를 포함한 요청 허용
     })
 );
-
-// __dirname 구현 (ES 모듈 환경)
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const app = express();
-const PORT = 4000;
-
 // 프로필 이미지와 게시물 이미지의 업로드 디렉토리 설정
 const profileImageDir = path.join(__dirname, 'uploads/profileImage');
 const postImageDir = path.join(__dirname, 'uploads/postImage');
