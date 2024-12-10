@@ -15,8 +15,7 @@ const PORT = 4000;
 // cors 설정
 app.use(
     cors({
-        origin: `http://${process.env.ADDRESS}:3000`, // 클라이언트 도메인
-        credentials: true, // 쿠키를 포함한 요청 허용
+        origin: '*', // 클라이언트 도메인
     })
 );
 // 프로필 이미지와 게시물 이미지의 업로드 디렉토리 설정
